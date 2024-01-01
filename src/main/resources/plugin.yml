@@ -1,0 +1,6 @@
+name: AtoutsPlugin
+version: '${project.version}'
+main: fr.papergx.atoutsplugin.AtoutsPlugin
+commands:
+  atouts:
+    description: Plugin atouts
