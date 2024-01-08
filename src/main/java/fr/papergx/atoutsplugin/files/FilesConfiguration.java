@@ -14,10 +14,14 @@ public class FilesConfiguration {
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
         HashMap<String, String> listPermission = main.getListPermission();
+        HashMap<String,String> listOtherConfig = main.getListOtherConfig();
 
         listPermission.put("staffAtout", yamlConfiguration.getString("permission.staffattout"));
+        listOtherConfig.put("MainGuiName", yamlConfiguration.getString("gui.main.name"));
+        listOtherConfig.put("ItemNoFallName", yamlConfiguration.getString("item.nofall.name"));
 
         main.setListPermission(listPermission);
+        main.setListOtherConfig(listOtherConfig);
 
     }
 

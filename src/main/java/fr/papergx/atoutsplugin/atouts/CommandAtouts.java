@@ -1,6 +1,7 @@
 package fr.papergx.atoutsplugin.atouts;
 
 import fr.papergx.atoutsplugin.AtoutsPlugin;
+import fr.papergx.atoutsplugin.inventory.MainGUI;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,14 +23,19 @@ public class CommandAtouts implements CommandExecutor {
         Player player = (Player) commandSender;
 
         if(strings.length == 0) {
-            // - To do inv
+
+            main.getGuiAPI().openGUI(player, new MainGUI(main));
+
             return false;
         }
 
         HashMap<String, String> listPermission = main.getListPermission();
         HashMap<String, String> listMessage = main.getListMessage();
 
-        if(!player.hasPermission(listPermission.get("staffAtout"))) {
+
+        player.sendMessage(listPermission.get("staffAtout"));
+
+        if(!player.hasPermission("c")) {
             player.sendMessage(listMessage.get("nopermission"));
             return false;
         }

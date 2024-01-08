@@ -1,2 +1,8 @@
 permission:
   staffattout: "staff.atout"
+gui:
+  main:
+    name: "&6Atout&ePlugin"
+item:
+  nofall:
+    name: "§6Nofall"

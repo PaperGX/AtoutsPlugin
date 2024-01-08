@@ -1,15 +1,27 @@
 package fr.papergx.atoutsplugin;
 
+import dev.jcsoftware.minecraft.gui.GUIAPI;
 import fr.papergx.atoutsplugin.atouts.CommandAtouts;
 import fr.papergx.atoutsplugin.files.FilesConfiguration;
+import fr.papergx.atoutsplugin.files.FilesMessages;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 
+@Getter
 public final class AtoutsPlugin extends JavaPlugin {
 
+    @Setter
     private HashMap<String, String> listPermission;
+    @Setter
     private HashMap<String, String> listMessage;
+    @Setter
+    private HashMap<String, String> listOtherConfig;
+
+
+    private GUIAPI guiAPI;
 
     @Override
     public void onEnable() {
@@ -33,6 +45,10 @@ public final class AtoutsPlugin extends JavaPlugin {
 
         getCommand("atouts").setExecutor(new CommandAtouts(this));
 
+        // - Gui
+
+         this.guiAPI = new GUIAPI(this);
+
     }
 
     @Override
@@ -43,22 +59,7 @@ public final class AtoutsPlugin extends JavaPlugin {
     // - Getter
 
 
-    public HashMap<String, String> getListMessage() {
-        return listMessage;
-    }
-
-    public HashMap<String, String> getListPermission() {
-        return listPermission;
-    }
-
     // - Setter
 
 
-    public void setListMessage(HashMap<String, String> listMessage) {
-        this.listMessage = listMessage;
-    }
-
-    public void setListPermission(HashMap<String, String> listPermission) {
-        this.listPermission = listPermission;
-    }
 }

@@ -1,5 +1,6 @@
-package fr.papergx.atoutsplugin;
+package fr.papergx.atoutsplugin.files;
 
+import fr.papergx.atoutsplugin.AtoutsPlugin;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
